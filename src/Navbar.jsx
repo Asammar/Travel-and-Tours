@@ -1,13 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const Navbar = ({
-  triggerabt,
-  triggerHome,
-  triggerContact,
-  triggerTourpac,
-}) => {
+export default function Navbar({ triggerHome }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -15,46 +9,31 @@ const Navbar = ({
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-blue-600">
+          <a href="#" className="text-2xl font-bold text-blue-600">
             TravelX
-          </Link>
+          </a>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            <Link
-              to="/"
+          {/* Desktop Menu (Centered Links) */}
+          <div className="hidden md:flex flex-1 justify-center space-x-8">
+            <a
+              href="#"
               className="hover:text-blue-500 transition"
               onClick={triggerHome}
             >
               Home
-            </Link>
-            <Link
-              to="/about"
-              className="hover:text-blue-500 transition"
-              onClick={triggerabt}
-            >
+            </a>
+            <a href="#" className="hover:text-blue-500 transition">
               About
-            </Link>
-            <Link
-              to="/tour-packages"
-              className="hover:text-blue-500 transition"
-              onClick={triggerTourpac}
-            >
+            </a>
+            <a href="#" className="hover:text-blue-500 transition">
               Tour Packages
-            </Link>
-            <Link
-              to="/guide-vehicle"
-              className="hover:text-blue-500 transition"
-            >
+            </a>
+            <a href="#" className="hover:text-blue-500 transition">
               Guide & Vehicle
-            </Link>
-            <Link
-              to="/contact"
-              className="hover:text-blue-500 transition"
-              onClick={triggerContact}
-            >
+            </a>
+            <a href="#" className="hover:text-blue-500 transition">
               Contact
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,57 +48,46 @@ const Navbar = ({
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-white shadow-md rounded-lg">
-            <div className="flex flex-col space-y-4 p-4">
-              <Link
-                to="/"
+            <div className="flex flex-col space-y-4 p-4 text-center">
+              <a
+                href="#"
                 className="hover:text-blue-500"
-                onClick={() => {
-                  triggerHome();
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 Home
-              </Link>
-              <Link
-                to="/about"
+              </a>
+              <a
+                href="#"
                 className="hover:text-blue-500"
-                onClick={() => {
-                  triggerabt();
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 About
-              </Link>
-              <Link
-                to="/tour-packages"
+              </a>
+              <a
+                href="#"
                 className="hover:text-blue-500"
                 onClick={() => setIsOpen(false)}
               >
                 Tour Packages
-              </Link>
-              <Link
-                to="/guide-vehicle"
+              </a>
+              <a
+                href="#"
                 className="hover:text-blue-500"
                 onClick={() => setIsOpen(false)}
               >
                 Guide & Vehicle
-              </Link>
-              <Link
-                to="/contact"
+              </a>
+              <a
+                href="#"
                 className="hover:text-blue-500"
-                onClick={() => {
-                  triggerContact();
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 Contact
-              </Link>
+              </a>
             </div>
           </div>
         )}
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

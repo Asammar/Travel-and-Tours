@@ -1,12 +1,16 @@
+import { useState } from "react";
 import Navbar from "./Navbar";
+import Home from "./Home";
 
 const App = () => {
-  return;
+  const [isHome, setIsHome] = useState(true);
 
-  <>
-    heading
-    <Navbar />
-  </>;
+  return (
+    <>
+      <Navbar triggerHome={() => setIsHome(true)} />
+
+      {isHome && <Home />}
+    </>
+  );
 };
-
 export default App;
